@@ -46,7 +46,7 @@ service /graphql on new graphql:Listener(9090) {
     # + offset - Number of records to offset (default: 0)
     # + return - List of exams
     # 
-    resource function get exams(ExamFilter? filter, int? 'limit, int? offset) returns CertificationExam[]|error {
+    resource isolated function get exams(ExamFilter? filter, int? 'limit, int? offset) returns CertificationExam[]|error {
         log:printInfo(filter.toString());
         log:printInfo('limit.toString());
         log:printInfo(offset.toString());
