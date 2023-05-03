@@ -18,7 +18,7 @@ configurable string clientId = "";
 configurable string clientSecret = "";
 
 
-graphql:Client graphqlClient = check new (string `http://${host}:${port}/graphql`, {
+graphql:Client graphqlClient = check new (string `http://${host}/graphql`, {
     auth: {
         tokenUrl: tokenUrl,
         clientId: clientId,
