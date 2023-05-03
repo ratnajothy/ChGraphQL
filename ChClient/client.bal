@@ -13,8 +13,19 @@ type EntityExamPayload record {|
 
 configurable string host = "localhost";
 configurable int port = 9090;
+configurable string tokenUrl = "";
+configurable string clientId = "";
+configurable string clientSecret = "";
 
-graphql:Client graphqlClient = check new (string `http://${host}:${port}/graphql`);
+
+graphql:Client graphqlClient = check new (string `http://${host}:${port}/graphql`, {
+    auth: {
+        tokenUrl: tokenUrl,
+        clientId: clientId,
+        clientSecret: clientSecret
+    }
+});
+
 # Get Exams by Contact Id
 #
 # + contactId - Contact Id of the contact
