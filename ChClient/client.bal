@@ -11,8 +11,10 @@ type EntityExamPayload record {|
     |} data;
 |};
 
-graphql:Client graphqlClient = check new ("localhost:9090/graphql");
+configurable string host = "localhost";
+configurable int port = 9090;
 
+graphql:Client graphqlClient = check new (string `http://${host}:${port}/graphql`);
 # Get Exams by Contact Id
 #
 # + contactId - Contact Id of the contact
@@ -44,7 +46,7 @@ public function getExams(string? contactId = (), string? id = ()) returns Certif
 # Certification service is a network-accessible Public API
 # Which allows user to register for WSO2 Certification
 
-service / on new http:Listener(9091) {
+service / on new http:Listener(9090) {
     # Get exam by id.
     # 
     # + id - Contact Email that allocated to a particular contact.
