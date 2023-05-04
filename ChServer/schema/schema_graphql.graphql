@@ -1,0 +1,34 @@
+"Sales entity GraphQL service."
+type Query {
+  "Query Exams based on the provided filter criteria."
+  exams(
+    "Exam filters object"
+    filter: ExamFilter
+    limit: Int
+    "Number of records to offset (default: 0)"
+    offset: Int
+  ): [CertificationExam!]!
+}
+
+type CertificationExam {
+  id: String
+  name: String
+  examId: String
+  date: String
+  state: String
+  createdDate: String
+  examDate: String
+  expirationDate: String
+  examVersion: String
+  examType: String
+  examVisibleType: String
+  examPaperType: String
+}
+
+"[Query Filter] exam object filters"
+input ExamFilter {
+  id: String = ""
+  examVersion: String = ""
+  state: String = ""
+  contactId: String = ""
+}
