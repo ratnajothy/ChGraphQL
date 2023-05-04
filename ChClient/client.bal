@@ -55,7 +55,6 @@ public function getExams(string? contactId = (), string? id = ()) returns Certif
 
 # Certification service is a network-accessible Public API
 # Which allows user to register for WSO2 Certification
-
 service / on new http:Listener(9090) {
     # Get exam by id.
     # 
@@ -63,7 +62,6 @@ service / on new http:Listener(9090) {
     # + return - Exam object. 
     resource function get exam(string? contactId, string? id) returns CertificationExam[]|error {
         CertificationExam[] contact =  check getExams(contactId, id);
-
         return contact;
     }
 }
