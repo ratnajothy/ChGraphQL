@@ -12,6 +12,7 @@ type EntityExamPayload record {|
 |};
 
 configurable string host = "localhost";
+configurable int port = 9090;
 configurable string tokenUrl = "";
 configurable string clientId = "";
 configurable string clientSecret = "";
